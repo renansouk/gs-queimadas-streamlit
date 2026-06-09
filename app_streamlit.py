@@ -12,12 +12,12 @@ from prever_proximas_queimadas import DEFAULT_DATASET, load_dataset, predict_nex
 st.set_page_config(
     page_title="ÍGNIS - Risco de Queimadas",
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 
 st.markdown(
     """
     <style>
-    [data-testid="stToolbar"],
     [data-testid="stDecoration"],
     [data-testid="stStatusWidget"],
     #MainMenu,
@@ -27,6 +27,14 @@ st.markdown(
     }
     [data-testid="stHeader"] {
         background: rgba(247, 247, 243, 0.96);
+    }
+    [data-testid="stHeader"] button,
+    [data-testid="collapsedControl"],
+    [data-testid="stSidebarCollapsedControl"] {
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        z-index: 999999 !important;
     }
     .block-container {
         padding-top: 2.25rem;
