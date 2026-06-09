@@ -10,7 +10,7 @@ from prever_proximas_queimadas import DEFAULT_DATASET, load_dataset, predict_nex
 
 
 st.set_page_config(
-    page_title="Painel de Risco de Queimadas",
+    page_title="ÍGNIS - Risco de Queimadas",
     layout="wide",
 )
 
@@ -21,13 +21,36 @@ st.markdown(
     [data-testid="stDecoration"],
     [data-testid="stStatusWidget"],
     #MainMenu,
-    header,
     footer {
         visibility: hidden;
         height: 0;
     }
+    [data-testid="stHeader"] {
+        background: rgba(247, 247, 243, 0.96);
+    }
     .block-container {
-        padding-top: 1.5rem;
+        padding-top: 2.25rem;
+    }
+    .tool-name {
+        font-size: 0.95rem;
+        letter-spacing: 0.16rem;
+        text-transform: uppercase;
+        color: #5f7f6a;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+    .tool-title {
+        font-size: clamp(2.1rem, 4vw, 3.2rem);
+        line-height: 1.05;
+        font-weight: 800;
+        color: #202020;
+        margin-bottom: 0.6rem;
+    }
+    .tool-subtitle {
+        color: #6f756f;
+        max-width: 860px;
+        font-size: 1rem;
+        margin-bottom: 1.8rem;
     }
     </style>
     """,
@@ -73,9 +96,16 @@ def month_label(month: int) -> str:
 
 
 def render_header():
-    st.title("Painel de Gestão de Risco de Queimadas")
-    st.caption(
-        "Previsão mensal por estado usando variáveis climáticas, localização e histórico do período anterior."
+    st.markdown(
+        """
+        <div class="tool-name">ÍGNIS</div>
+        <div class="tool-title">Painel de Gestão de Risco de Queimadas</div>
+        <div class="tool-subtitle">
+        Inteligência geoespacial para prever o risco do próximo mês por estado e bioma,
+        priorizando ações antes do pico de seca.
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
 
